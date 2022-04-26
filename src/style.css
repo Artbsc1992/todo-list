@@ -47,13 +47,11 @@ ul {
   margin-bottom: 0;
 }
 
-
-
-ul li:nth-child(odd){
+ul li:nth-child(odd) {
   background-color: rgb(125, 125, 129);
 }
 
-.task-description{
+.task-description {
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -1,5 +1,4 @@
-import _ from 'lodash';
-import '../src/style.css';
+import './style.css';
 
 const list = document.querySelector('ul');
 
@@ -18,7 +17,7 @@ const taskList = [
     description: 'Walk the dog',
     completed: false,
     index: 3,
-  }
+  },
 ];
 
 const addTask = (task) => `
