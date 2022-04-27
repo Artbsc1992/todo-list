@@ -1,73 +1,48 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
-# Project Name
-
-> Description the project.
-
+# to-do-list
+In this project i create a To Do List using webpack. This project allows user to add, remove and mark as complete tasks.
 
 ## Built With
-
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- Javascript
+- Webpack
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
-
+[Live Demo Link]()
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
+To get started and get a local copy of this project, follow the next intructions:
+- Clone the repository by excecuting the git clone ```ghttps://github.com/Artbsc1992/todo-list.git``` from the terminal.
 
 ### Prerequisites
+You should make sure that you have installed in your computer the Node.js.
 
 ### Setup
+You can clone this repository or simply download the zip file.
 
 ### Install
+Don't forget to install node_modules dependency using "npm install".
 
 ### Usage
+Feel free to use this project and also if you hava found usefull, please consider the acknowledgement specify bellow.
 
-### Run tests
 
 ### Deployment
-
-
+The deployment updates automatically once the main branch is update.
 
 ## Authors
 
-👤 **Author1**
+👤 **Arturo Hermida**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Artbsc1992](https://github.com/Artbsc1992)
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
-
 ## Show your support
-
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
 ## 📝 License
-
 This project is [MIT](./MIT.md) licensed.
