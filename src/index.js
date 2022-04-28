@@ -22,16 +22,20 @@ const renderTodos = (tasks) => {
     li.innerHTML = `
   <div class="task-description">
       <input type="checkbox"  ${checked} class="checkbox">
-      <input type="text" class="input-description" name="${item.id}" value="${item.name}">
+      <input type="text" class="input-description" id="${item.id}" value="${item.name}">
       <i class="fas fa-ellipsis-v"></i>
       <button class="delete-button">X</button>
    </div>
   `;
     todoItemsList.append(li);
-    document.querySelector(`${item.id}`).addEventListener('input', (e) => {
-      console.log(e)
+    const input = li.children[0].children[1];
+    input.addEventListener('input', () => {
+      tasks.forEach((task) => {
+        if (task.id === item.id) {
+          task.name = input.value;
+        }
+      });
       localStorage.setItem('Tasks', JSON.stringify(tasks));
-      addLocal(tasks);
     });
   });
 };
