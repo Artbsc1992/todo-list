@@ -10,7 +10,7 @@
     <title>To do-list</title>
   <script defer src="main.js"></script></head>
   <body>
-    <form>
+    <form class="todo-form">
       <div class="title">
         <p>Today's To Do</p>
         <button class="restart" type="button">
@@ -18,13 +18,14 @@
         </button>
       </div>
       <div class="add-list">
-        <input type="text" id="task" placeholder="Add to your list..." />
+        <input type="text" name="name" id="task" 
+        autofocus placeholder="Add to your list..." />
         <button type="submit" class="btn-add">
           <i class="fas fa-level-down-alt"></i>
         </button>
       </div>
-      <ul></ul>
-      <button type="submit" class="clear-all">Clear all completed</button>
+      <ul class="todo-items"></ul>
+      <button class="clear-all" type="button">Clear all completed</button>
     </form>
   </body>
 </html>

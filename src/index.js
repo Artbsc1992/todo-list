@@ -1,37 +1,104 @@
 import './style.css';
 
-const list = document.querySelector('ul');
+const todoForm = document.querySelector('.todo-form');
+const todoInput = document.querySelector('#task');
+const todoItemsList = document.querySelector('.todo-items');
+const inputEdit = document.querySelector('.input-description');
+const clearBtn = document.querySelector('.clear-all');
 
-const taskList = [
-  {
-    description: 'Make breakfast',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Do laundry',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Walk the dog',
-    completed: false,
-    index: 3,
-  },
-];
+let tasks = [];
 
-const addTask = (task) => `
-   <li> 
-   <div class="task-description">
-   <input type="checkbox" class="checkbox">
-   <input type="text" readonly class="input-descrption" value="${task.description}">
-   <i class="fas fa-ellipsis-v"></i>
+// show tasks into the user interface
+const renderTodos = (tasks) => {
+  todoItemsList.innerHTML = '';
+  tasks.forEach((item) => {
+    const checked = item.completed ? 'checked' : null;
+    const li = document.createElement('li');
+    li.setAttribute('class', 'item');
+    li.setAttribute('data-key', item.id);
+
+    if (item.completed === true) {
+      li.classList.add('checked');
+    }
+    li.innerHTML = `
+  <div class="task-description">
+      <input type="checkbox"  ${checked} class="checkbox">
+      <input type="text" class="input-description" value="${item.name}">
+      <i class="fas fa-ellipsis-v"></i>
+      <button class="delete-button">X</button>
    </div>
-   </li>
   `;
-
-const iterate = () => {
-  list.innerHTML = taskList.map(addTask).join('');
+    todoItemsList.append(li);
+  });
 };
 
-iterate();
+// Add to local storage
+const addLocal = (tasks) => {
+  localStorage.setItem('Tasks', JSON.stringify(tasks));
+  renderTodos(tasks);
+};
+
+// Get local storage if it's any
+const getLocal = () => {
+  const reference = localStorage.getItem('Tasks');
+  if (reference) {
+    tasks = JSON.parse(reference);
+    renderTodos(tasks);
+  }
+};
+
+const addTodo = (task) => {
+  if (task !== '') {
+    const todo = {
+      id: Date.now(),
+      name: task,
+      completed: false,
+    };
+
+    tasks.push(todo);
+    addLocal(tasks);
+
+    todoInput.value = '';
+  }
+};
+
+todoForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  addTodo(todoInput.value);
+});
+
+// delete
+const toggle = (id) => {
+  tasks.forEach((item) => {
+    if (item.id.toString() ===id) {
+      item.completed = !item.completed;
+    }
+  });
+  addLocal(tasks);
+};
+
+const deleteTodo = (id) => {
+  tasks = tasks.filter((item) => item.id.toString() !== id);
+  addLocal(tasks);
+};
+
+todoItemsList.addEventListener('click', (e) => {
+  if (e.target.type === 'checkbox') {
+    toggle(e.target.parentElement.parentElement.getAttribute('data-key'));
+  }
+  if (e.target.classList.contains('delete-button')) {
+    deleteTodo(e.target.parentElement.parentElement.getAttribute('data-key'));
+  }
+});
+
+// load page
+
+window.addEventListener('load', () => {
+  getLocal();
+});
+
+// inputEdit.addEventListener('change', (e) => {
+//   localStorage.setItem('Tasks', e.target.value);
+//   addLocal(tasks);
+// });
