@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1097d30f85.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>To do-list</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <form>
+      <div class="title">
+        <p>Today's To Do</p>
+        <button class="restart" type="button">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+      </div>
+      <div class="add-list">
+        <input type="text" id="task" placeholder="Add to your list..." />
+        <button type="submit" class="btn-add">
+          <i class="fas fa-level-down-alt"></i>
+        </button>
+      </div>
+      <ul></ul>
+      <button type="submit" class="clear-all">Clear all completed</button>
+    </form>
+  </body>
+</html>

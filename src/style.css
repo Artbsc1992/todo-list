@@ -1,0 +1,75 @@
+body {
+  height: 100vh;
+  background-color: #e6e8eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.restart {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 1.5vw;
+}
+
+p {
+  font-size: 50px;
+}
+
+.add-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-add {
+  background-color: transparent;
+  border: none;
+  color: black;
+  text-align: right;
+}
+
+form {
+  background-color: aliceblue;
+  width: 700px;
+  min-height: auto;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+ul li:nth-child(odd) {
+  background-color: rgb(125, 125, 129);
+}
+
+.task-description {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  height: 30px;
+}
+
+.clear-all {
+  background-color: aliceblue;
+  border: none;
+  color: rgb(177, 177, 177);
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  padding: 20px 0 20px 0;
+}
