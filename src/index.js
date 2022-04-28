@@ -11,6 +11,7 @@ let tasks = [];
 const renderTodos = (tasks) => {
   todoItemsList.innerHTML = '';
   tasks.forEach((item) => {
+    let mouseOver = false;
     const checked = item.completed ? 'checked' : null;
     const li = document.createElement('li');
     li.setAttribute('class', 'item');
@@ -23,7 +24,7 @@ const renderTodos = (tasks) => {
   <div class="task-description">
       <input type="checkbox"  ${checked} class="checkbox">
       <input type="text" class="input-description" id="${item.id}" value="${item.name}">
-      <i class="fas fa-ellipsis-v"></i>
+      <i class="fas fa-ellipsis-v dots"></i>
       <button class="delete-button">X</button>
    </div>
   `;
@@ -36,6 +37,23 @@ const renderTodos = (tasks) => {
         }
       });
       localStorage.setItem('Tasks', JSON.stringify(tasks));
+    });
+    const dltBtn = input.parentElement.querySelector('.delete-button');
+    input.addEventListener('focus', () => {
+      dltBtn.classList.add('active');
+    });
+
+    input.addEventListener('focusout', () => {
+      if (mouseOver) return;
+      dltBtn.classList.remove('active');
+    });
+
+    dltBtn.addEventListener('mouseover', () => {
+      mouseOver = true;
+    });
+
+    dltBtn.addEventListener('mouseout', () => {
+      mouseOver = false;
     });
   });
 };
@@ -79,7 +97,7 @@ todoForm.addEventListener('submit', (e) => {
 // delete
 const toggle = (id) => {
   tasks.forEach((item) => {
-    if (item.id.toString() ===id) {
+    if (item.id.toString() === id) {
       item.completed = !item.completed;
     }
   });
@@ -91,6 +109,10 @@ const deleteTodo = (id) => {
   addLocal(tasks);
 };
 
+clearBtn.addEventListener('click', () => {
+  tasks = tasks.filter((item) => item.completed === false);
+  addLocal(tasks);
+});
 
 todoItemsList.addEventListener('click', (e) => {
   if (e.target.type === 'checkbox') {
@@ -106,5 +128,3 @@ todoItemsList.addEventListener('click', (e) => {
 window.addEventListener('load', () => {
   getLocal();
 });
-
-

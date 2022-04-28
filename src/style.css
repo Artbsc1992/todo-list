@@ -12,6 +12,7 @@ body {
 }
 
 .restart {
+  display: none;
   background-color: transparent;
   border: none;
   color: black;
@@ -64,6 +65,14 @@ input {
   height: 30px;
 }
 
+.input-description {
+  width: 550px;
+}
+
+.checkbox {
+  margin-left: 20px;
+}
+
 .clear-all {
   background-color: aliceblue;
   border: none;
@@ -72,4 +81,21 @@ input {
   width: 100%;
   font-size: 18px;
   padding: 20px 0 20px 0;
+}
+
+.clear-all:hover {
+  color: black;
+  transition: 0.3s;
+}
+
+.checked .task-description .input-description {
+  text-decoration: line-through;
+}
+
+.delete-button {
+  display: none;
+}
+
+.delete-button.active {
+  display: block;
 }
