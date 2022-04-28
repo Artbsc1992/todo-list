@@ -95,6 +95,7 @@ input {
 
 .checked .task-description .input-description {
   text-decoration: line-through;
+  color: rgb(209, 209, 209);
 }
 
 .delete-button {
