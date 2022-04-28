@@ -6,6 +6,10 @@ body {
   align-items: center;
 }
 
+#task {
+  outline: none;
+}
+
 .title {
   display: flex;
   justify-content: space-around;
@@ -67,6 +71,7 @@ input {
 
 .input-description {
   width: 550px;
+  outline: none !important;
 }
 
 .checkbox {
@@ -94,8 +99,23 @@ input {
 
 .delete-button {
   display: none;
+  background-color: red;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  width: 25px;
 }
 
 .delete-button.active {
   display: block;
+}
+
+.dots {
+  width: 25px;
+  text-align: center;
+}
+
+.dots.active {
+  display: none;
 }

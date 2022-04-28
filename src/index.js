@@ -39,13 +39,16 @@ const renderTodos = (tasks) => {
       localStorage.setItem('Tasks', JSON.stringify(tasks));
     });
     const dltBtn = input.parentElement.querySelector('.delete-button');
+    const dots = input.parentElement.querySelector('.dots');
     input.addEventListener('focus', () => {
       dltBtn.classList.add('active');
+      dots.classList.add('active');
     });
 
     input.addEventListener('focusout', () => {
       if (mouseOver) return;
       dltBtn.classList.remove('active');
+      dots.classList.remove('active');
     });
 
     dltBtn.addEventListener('mouseover', () => {
