@@ -3,7 +3,6 @@ import './style.css';
 const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('#task');
 const todoItemsList = document.querySelector('.todo-items');
-const inputEdit = document.querySelector('.input-description');
 const clearBtn = document.querySelector('.clear-all');
 
 let tasks = [];
@@ -23,12 +22,17 @@ const renderTodos = (tasks) => {
     li.innerHTML = `
   <div class="task-description">
       <input type="checkbox"  ${checked} class="checkbox">
-      <input type="text" class="input-description" value="${item.name}">
+      <input type="text" class="input-description" name="${item.id}" value="${item.name}">
       <i class="fas fa-ellipsis-v"></i>
       <button class="delete-button">X</button>
    </div>
   `;
     todoItemsList.append(li);
+    document.querySelector(`${item.id}`).addEventListener('input', (e) => {
+      console.log(e)
+      localStorage.setItem('Tasks', JSON.stringify(tasks));
+      addLocal(tasks);
+    });
   });
 };
 
@@ -83,6 +87,7 @@ const deleteTodo = (id) => {
   addLocal(tasks);
 };
 
+
 todoItemsList.addEventListener('click', (e) => {
   if (e.target.type === 'checkbox') {
     toggle(e.target.parentElement.parentElement.getAttribute('data-key'));
@@ -98,7 +103,4 @@ window.addEventListener('load', () => {
   getLocal();
 });
 
-// inputEdit.addEventListener('change', (e) => {
-//   localStorage.setItem('Tasks', e.target.value);
-//   addLocal(tasks);
-// });
+
