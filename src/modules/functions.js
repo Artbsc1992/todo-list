@@ -5,7 +5,6 @@ import addTodo from './addTodo.js';
 const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('#task');
 const todoItemsList = document.querySelector('.todo-items');
-const clearBtn = document.querySelector('.clear-all');
 
 let tasks = [];
 
