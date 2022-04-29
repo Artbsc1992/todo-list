@@ -9,7 +9,7 @@ In this project i create a To Do List using webpack. This project allows user to
 
 ## Live Demo (if available)
 
-[Live Demo Link]()
+[Live Demo Link](https://artbsc1992.github.io/todo-list/dist)
 
 ## Getting Started
 To get started and get a local copy of this project, follow the next intructions:
