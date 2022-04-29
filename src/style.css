@@ -6,12 +6,17 @@ body {
   align-items: center;
 }
 
+#task {
+  outline: none;
+}
+
 .title {
   display: flex;
   justify-content: space-around;
 }
 
 .restart {
+  display: none;
   background-color: transparent;
   border: none;
   color: black;
@@ -64,6 +69,15 @@ input {
   height: 30px;
 }
 
+.input-description {
+  width: 550px;
+  outline: none !important;
+}
+
+.checkbox {
+  margin-left: 20px;
+}
+
 .clear-all {
   background-color: aliceblue;
   border: none;
@@ -72,4 +86,37 @@ input {
   width: 100%;
   font-size: 18px;
   padding: 20px 0 20px 0;
+}
+
+.clear-all:hover {
+  color: black;
+  transition: 0.3s;
+}
+
+.checked .task-description .input-description {
+  text-decoration: line-through;
+  color: rgb(209, 209, 209);
+}
+
+.delete-button {
+  display: none;
+  background-color: red;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  width: 25px;
+}
+
+.delete-button.active {
+  display: block;
+}
+
+.dots {
+  width: 25px;
+  text-align: center;
+}
+
+.dots.active {
+  display: none;
 }
