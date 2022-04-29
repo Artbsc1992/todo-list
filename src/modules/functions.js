@@ -88,23 +88,23 @@ const toggle = (id) => {
 };
 
 const deleteTodo = (id) => {
-    tasks = tasks.filter((item) => item.id.toString() !== id);
-    addLocal(tasks);
-  };
-  
-  clearBtn.addEventListener('click', () => {
-    tasks = tasks.filter((item) => item.completed === false);
-    addLocal(tasks);
-  });
-  
-  todoItemsList.addEventListener('click', (e) => {
-    if (e.target.type === 'checkbox') {
-      toggle(e.target.parentElement.parentElement.getAttribute('data-key'));
-    }
-    if (e.target.classList.contains('delete-button')) {
-      deleteTodo(e.target.parentElement.parentElement.getAttribute('data-key'));
-    }
-  });
+  tasks = tasks.filter((item) => item.id.toString() !== id);
+  addLocal(tasks);
+};
+
+clearBtn.addEventListener('click', () => {
+  tasks = tasks.filter((item) => item.completed === false);
+  addLocal(tasks);
+});
+
+todoItemsList.addEventListener('click', (e) => {
+  if (e.target.type === 'checkbox') {
+    toggle(e.target.parentElement.parentElement.getAttribute('data-key'));
+  }
+  if (e.target.classList.contains('delete-button')) {
+    deleteTodo(e.target.parentElement.parentElement.getAttribute('data-key'));
+  }
+});
 
 // load page
 
