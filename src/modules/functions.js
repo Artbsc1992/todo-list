@@ -5,6 +5,7 @@ import addTodo from './addTodo.js';
 const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('#task');
 const todoItemsList = document.querySelector('.todo-items');
+const clearBtn = document.querySelector('.clear-all');
 
 let tasks = [];
 
@@ -77,17 +78,33 @@ todoForm.addEventListener('submit', (e) => {
 });
 
 // delete
-
-const deleteTodo = (id) => {
-  tasks = tasks.filter((item) => item.id.toString() !== id);
+const toggle = (id) => {
+  tasks.forEach((item) => {
+    if (item.id.toString() === id) {
+      item.completed = !item.completed;
+    }
+  });
   addLocal(tasks);
 };
 
-todoItemsList.addEventListener('click', (e) => {
-  if (e.target.classList.contains('delete-button')) {
-    deleteTodo(e.target.parentElement.parentElement.getAttribute('data-key'));
-  }
-});
+const deleteTodo = (id) => {
+    tasks = tasks.filter((item) => item.id.toString() !== id);
+    addLocal(tasks);
+  };
+  
+  clearBtn.addEventListener('click', () => {
+    tasks = tasks.filter((item) => item.completed === false);
+    addLocal(tasks);
+  });
+  
+  todoItemsList.addEventListener('click', (e) => {
+    if (e.target.type === 'checkbox') {
+      toggle(e.target.parentElement.parentElement.getAttribute('data-key'));
+    }
+    if (e.target.classList.contains('delete-button')) {
+      deleteTodo(e.target.parentElement.parentElement.getAttribute('data-key'));
+    }
+  });
 
 // load page
 
