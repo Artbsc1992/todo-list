@@ -56,7 +56,7 @@ ul {
 }
 
 ul li:nth-child(odd) {
-  background-color: rgb(125, 125, 129);
+  background-color: rgb(174, 174, 180);
 }
 
 .task-description {
@@ -103,7 +103,10 @@ input {
 
 .delete-button {
   display: none;
-  background-color: red;
+  background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
+  transition: 0.5s;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #eee;
   border: none;
   color: black;
   text-align: center;
